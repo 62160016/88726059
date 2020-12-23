@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>โปรแกรมทักทาย</p>
+
+<input type="text" id="myInput" oninput="myFunction()">
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var a = document.getElementById("myInput").value;
+  document.getElementById("demo").innerHTML = "Hello " + a;
+}
+</script>
+
+</body>
+</html>
+
+
+----------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรแกรมสูตรคูณ - multi.html</title>
+    <h3>โปรแกรมสูตรคูณ</h3>
+<script>
+    function multi(n) {
+            div = document.getElementById('disp')
+            div.innerHTML = ''
+            table = `` 
+
+            for (i = 1; i <= 12; i++) {
+                table += `<tr>
+                            <td>${n} x ${i}  </td>
+                            <td> = </td>
+                            <td>${n*i} </td>
+                        </tr>`
+                
+        }
+        div.innerHTML = table
+    }
+   
+</script>
+</head>
+<body  align="left"><br>
+<input type="text" placeholder="สูตรคูณแม่ ?" onkeyup="multi(this.value);">
+<table CellSpacing= "10px">
+<tbody id="disp">
+
+</tbody>
+</table>
+</body>
+
+</html>
+----------------------------------------------------------------------
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>cal</title>
+    
+    </head>
+
+    <body>
+        <br><h1>โปรแกรม Calculator</h1>
+
+    <input tuye="text" placeholder="Num1" id="number1">
+    <td>
+        <select name="mark" id="rn">
+        <option value ="1">+</option>
+        <option value ="2">-</option>
+        <option value ="3">*</option>
+        <option value ="4">/</option>
+        </select>
+    </td>
+    <input tuye="text" placeholder="Num2" id="number2">
+    <button onclick="as()">=</button>
+    <div id="result"></div>
+
+
+<script>
+    
+    function as(){
+        num1=document.getElementById('number1');
+        num2=document.getElementById('number2');
+
+        result=document.getElementById('result');
+        rn=document.getElementById('rn');
+
+            if(parseInt(rn.value) == 1){
+                result.textContent = parseInt(num1.value) + parseInt(num2.value)
+            }if(parseInt(rn.value) == 2){
+                result.textContent = parseInt(num1.value) - parseInt(num2.value)
+            }if(parseInt(rn.value) == 3){
+                result.textContent = parseInt(num1.value) * parseInt(num2.value)
+            }if(parseInt(rn.value) == 4){
+                result.textContent = parseInt(num1.value) / parseInt(num2.value)
+            }
+    }
+</script>
+    </body>
+    </html>
+--------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<p>โปรแกรมบวกสะสม</p>
+    
+<script>
+    function summary(){
+          sum = document.getElementById('sum').innerHTML=""
+          number1 = document.getElementById('x');
+          number2 = document.getElementById('y');
+          sum = document.getElementById('sum');
+          var c = 0;
+          
+    for ( let i = parseInt(number1.value);i<=parseInt(number2.value);i++) {
+        c = c+i;
+
+        sum.innerHTML +=i
+        if(i<parseInt(number2.value)){
+            
+            sum.innerHTML += "+"
+        }
+        if(i==parseInt(number2.value)){
+            sum.innerHTML += "="
+            sum.innerHTML += c
+        }
+    }
+}
+</script>
+<body>
+            <input type="text" placeholder="ใส่ตัวเลข" id="x"> -  
+            <input type="text" placeholder="ใส่ตัวเลข" id="y">
+            <button onclick="summary()">คำนวณ</button>
+            <div id="sum"></div>
+            
+</body>
+</html>
+----------------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random</title>
+    <h3>RandomNumber</h3>
+    <script>
+        function random() {
+            let x = document.querySelector('#x')
+            let result = document.querySelector('#result')
+
+            result.innerHTML = ''
+
+            let numbers = []
+            for (let i = 0; i < parseInt(x.value); i++) {
+                rn = Math.floor(Math.random() * 100)
+                numbers.push(rn)
+            }
+
+            numbers.sort((a, b) => a - b)
+
+            
+
+            let count = 1
+            let table = ``
+
+            for (let i = 1; i <= numbers.length; i++) {
+                if (numbers[i] == numbers[i - 1]) {
+                    count++
+                }
+                else {
+                    table += `<tr>
+                                <td>${numbers[i - 1]}</td>
+                                <td>${count}</td>
+                            </tr>`
+                    count = 1
+                }
+            }
+
+            result.innerHTML = table
+        }
+    </script>
+</head>
+<body>
+    <input type="text" placeholder="Numbers is" id="x">
+    <button onclick="random()"class="open">ClickRandom</button>
+    <style type="text/css">
+        .open {
+            background-color: rgb(150, 241, 150);
+        }
+    </style>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Numbers</th>
+                <th>Ramdom</th>
+            </tr>
+        </thead>
+
+        <tbody id="result">
+
+        </tbody>
+    </table>
+</body>
+
+</html>
